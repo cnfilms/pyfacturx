@@ -27,6 +27,11 @@
 				<ram:SellerAssignedID></ram:SellerAssignedID>
 				<ram:BuyerAssignedID></ram:BuyerAssignedID>
 				<ram:Name>Facture</ram:Name>
+				<ram:Description></ram:Description>
+				<ram:ApplicableProductCharacteristic>
+					<ram:Description></ram:Description>
+					<ram:Value></ram:Value>
+				</ram:ApplicableProductCharacteristic>
 			</ram:SpecifiedTradeProduct>
 			<ram:SpecifiedLineTradeAgreement>
 				<ram:NetPriceProductTradePrice>
@@ -60,6 +65,7 @@
 					<ram:PostcodeCode></ram:PostcodeCode>
 					<ram:LineOne></ram:LineOne>
 					<ram:LineTwo></ram:LineTwo>
+					<ram:LineThree></ram:LineThree>
 					<ram:CityName></ram:CityName>
 					<ram:CountryID></ram:CountryID>
 				</ram:PostalTradeAddress>
@@ -76,13 +82,23 @@
 				<ram:SpecifiedLegalOrganization>
 					<ram:ID schemeID="0002"></ram:ID>
 				</ram:SpecifiedLegalOrganization>
+				<ram:DefinedTradeContact>
+					<ram:TelephoneUniversalCommunication>
+						<ram:CompleteNumber></ram:CompleteNumber>
+					</ram:TelephoneUniversalCommunication>
+				</ram:DefinedTradeContact>
 				<ram:PostalTradeAddress>
 					<ram:PostcodeCode></ram:PostcodeCode>
 					<ram:LineOne></ram:LineOne>
 					<ram:LineTwo></ram:LineTwo>
+					<ram:LineThree></ram:LineThree>
 					<ram:CityName></ram:CityName>
 					<ram:CountryID></ram:CountryID>
+					<ram:CountrySubDivisionName></ram:CountrySubDivisionName>
 				</ram:PostalTradeAddress>
+				<ram:URIUniversalCommunication>
+					<ram:URIID schemeID="EM"></ram:URIID>
+				</ram:URIUniversalCommunication>
 				<ram:SpecifiedTaxRegistration>
 					<ram:ID schemeID="VA"></ram:ID>
 				</ram:SpecifiedTaxRegistration>
@@ -115,12 +131,14 @@
 			</ram:DespatchAdviceReferencedDocument>
 		</ram:ApplicableHeaderTradeDelivery>
 		<ram:ApplicableHeaderTradeSettlement>
+			<ram:PaymentReference></ram:PaymentReference>
 			<ram:InvoiceCurrencyCode>EUR</ram:InvoiceCurrencyCode>
 			<ram:SpecifiedTradeSettlementPaymentMeans>
 				<ram:TypeCode></ram:TypeCode>
 				<ram:PayeePartyCreditorFinancialAccount>
 					<ram:IBANID></ram:IBANID>
 					<ram:AccountName></ram:AccountName>
+					<ram:ProprietaryID></ram:ProprietaryID>
 				</ram:PayeePartyCreditorFinancialAccount>
 				<ram:PayeeSpecifiedCreditorFinancialInstitution>
 					<ram:BICID></ram:BICID>
@@ -149,7 +167,7 @@
 				<ram:CalculationPercent>0</ram:CalculationPercent>
 				<ram:BasisAmount currencyID="EUR">0</ram:BasisAmount>
 				<ram:ActualAmount currencyID="EUR">0</ram:ActualAmount>
-				<ram:Reason></ram:Reason>
+				<ram:Reason>-</ram:Reason>
 				<ram:CategoryTradeTax>
 					<ram:TypeCode>VAT</ram:TypeCode>
 					<ram:CategoryCode>S</ram:CategoryCode>
@@ -158,6 +176,7 @@
 				</ram:CategoryTradeTax>
 			</ram:SpecifiedTradeAllowanceCharge>
 			<ram:SpecifiedTradePaymentTerms>
+				<ram:Description></ram:Description>
 				<ram:DueDateDateTime>
 					<udt:DateTimeString format="102"></udt:DateTimeString>
 				</ram:DueDateDateTime>
@@ -170,6 +189,9 @@
 				<ram:GrandTotalAmount currencyID="EUR">0</ram:GrandTotalAmount>
 				<ram:DuePayableAmount currencyID="EUR">0</ram:DuePayableAmount>
 			</ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+			<ram:InvoiceReferencedDocument>
+				<ram:IssuerAssignedID></ram:IssuerAssignedID>
+			</ram:InvoiceReferencedDocument>
 		</ram:ApplicableHeaderTradeSettlement>
 	</rsm:SupplyChainTradeTransaction>
 </rsm:CrossIndustryInvoice>
