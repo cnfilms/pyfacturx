@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyfacturx',
-    version='1.0.1',
+    version='1.0.2',
     author='',
     author_email='',
     url='',
