@@ -104,7 +104,7 @@ class FacturX(object):
         current_el = res[-1]
         parent_tag = current_el.getparent().tag
 
-        self._handle_duplicated_node(current_el, parent_tag)
+        current_el = self._handle_duplicated_node(current_el, parent_tag)
         self._write_element(current_el, field_name, value)
         self._save_to_registry(current_el, parent_tag)
 
@@ -113,7 +113,11 @@ class FacturX(object):
         # we get the sibling and duplicate it
         if parent_tag in self.already_added_field and current_el in self.already_added_field[parent_tag]:
             parent_el = current_el.getparent()
-            parent_el.addnext(copy.copy(parent_el))
+            new_parent = copy.deepcopy(parent_el)
+            parent_el.addnext(new_parent)
+            new_current_el = new_parent.find(current_el.tag)
+            return new_current_el
+        return current_el
 
     def _write_element(self, current_el, field_name, value):
         # if we have type cast worries, it must be handled here
@@ -122,8 +126,8 @@ class FacturX(object):
             value = value.strftime('%Y%m%d')
             current_el.attrib['format'] = '102'
             current_el.text = value
-        # if en16931 temporary, will eventually be removed once sure its applicable to basicwl too
-        elif self.flavor.level in [EN16931, EN16931_FE] and field_name in ['seller_email', 'buyer_siret'] and ':' in value:
+        elif (self.flavor.level in [EN16931, EN16931_FE] and
+              field_name in ['buyer_email', 'seller_email', 'buyer_siret'] and ':' in value):
             current_el.text = str(value.split(':')[1])
             current_el.attrib['schemeID'] = str(value.split(':')[0])
         else:
@@ -183,9 +187,35 @@ class FacturX(object):
             pdfwriter.write(output_f)
         return True
 
+    def _remove_empty_elements(self, element=None):
+        """
+        Recursively remove empty XML elements.
+        An element is considered empty if:
+          - It has no children
+          - Its text is None or whitespace
+          - It has no attributes
+        """
+        if element is None:
+            element = self.xml
+
+        # Work on a copy of children list since we may modify it
+        for child in list(element):
+            self._remove_empty_elements(child)
+
+        # After children are processed, check if current element is empty
+        if (
+                len(element) == 0 and
+                (element.text is None or not element.text.strip()) and
+                not element.attrib
+        ):
+            parent = element.getparent()
+            if parent is not None:
+                parent.remove(element)
+
     @property
     def xml_str(self):
         """Calculate MD5 checksum of XML file. Used for PDF attachment."""
+        self._remove_empty_elements()
         return etree.tostring(self.xml, pretty_print=True)
 
     def write_xml(self, path):
