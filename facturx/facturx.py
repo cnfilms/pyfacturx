@@ -12,7 +12,8 @@ from pypdf import PdfReader
 from pypdf.generic import IndirectObject
 
 from .flavors import xml_flavor
-from .logger import logger
+from facturx.utils.logger import logger
+from .flavors.xml_flavor import XMLFlavor
 from .pdfwriter import FacturXPDFWriter
 
 file_types = (io.IOBase,)
@@ -78,7 +79,7 @@ class FacturX(object):
         for file in pdf_root['/Names']['/EmbeddedFiles']['/Names']:
             if isinstance(file, IndirectObject):
                 obj = file.get_object()
-                if obj['/F'] in xml_flavor.valid_xmp_filenames():
+                if obj['/F'] in XMLFlavor.valid_xmp_filenames():
                     xml_root = etree.fromstring(obj['/EF']['/F'].get_data())
                     xml_content = xml_root
 
