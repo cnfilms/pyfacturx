@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyfacturx"
+version = "2.0.0"
+description = "Factur-X: electronic invoicing standard for France"
+readme = "README.md"
+license = "BSD-2-Clause"
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+keywords = ["e-invoice", "Factur-X", "AIFE"]
+dependencies = [
+    "lxml>=6.0.2",
+    "pycountry>=20.7.3",
+    "PyYAML>=6.0.1",
+    "pypdf>=6.1.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["facturx*"]
+exclude = ["*.__pycache__*"]
+
+[tool.setuptools.package-data]
+"facturx" = [
+    "flavors/**/*.xml",
+    "flavors/**/*.xsd",
+    "flavors/**/*.xmp",
+    "flavors/**/*.yml",
+]

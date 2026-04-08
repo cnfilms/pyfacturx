@@ -1,5 +1,0 @@
-lxml==6.0.2
-pycountry==20.7.3
-PyYAML==6.0.1
-pypdf==6.1.1
-setuptools
