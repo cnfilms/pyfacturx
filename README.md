@@ -71,67 +71,6 @@ print(f"Date: {inv['date']}")
 data = inv.to_dict()
 ```
 
-### Exporting Metadata
-
-```python
-from facturx import FacturX
-
-inv = FacturX('facturx-invoice.pdf')
-
-# Export XML only
-inv.write_xml('metadata.xml')
-
-# Export to JSON
-inv.write_json('metadata.json')
-
-# Export to YAML
-inv.write_yaml('metadata.yml')
-```
-
-## Command Line Interface
-
-After installing the package with `pip install -e .`, you can use the command line tool. If the `facturx` command is not found in your PATH, you can run it using Python:
-
-```bash
-# Using Python module (always works)
-python -m bin.cli <command> [options]
-
-# Or if installed and in PATH
-facturx <command> [options]
-```
-
-### Available Commands
-
-#### Dump embedded metadata to file
-
-```bash
-# Extract to XML
-python -m bin.cli dump invoice.pdf metadata.xml
-
-# Extract to JSON
-python -m bin.cli dump invoice.pdf metadata.json
-
-# Extract to YAML
-python -m bin.cli dump invoice.pdf metadata.yml
-```
-
-#### Validate embedded XML
-
-```bash
-python -m bin.cli validate invoice.pdf
-```
-
-### Help
-
-```bash
-# Show all available commands
-python -m bin.cli -h
-
-# Show help for specific command
-python -m bin.cli dump -h
-python -m bin.cli validate -h
-```
-
 ## Available Fields
 
 The library provides a simplified interface to common invoice fields. Field names are mapped to XML paths internally. See `facturx/flavors/fields.yml` for the complete field mapping.

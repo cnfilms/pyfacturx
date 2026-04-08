@@ -15,7 +15,7 @@ from lxml import etree
 import pycountry
 import yaml
 
-from ..logger import logger
+from facturx.utils.logger import logger
 
 unicode = str
 
@@ -37,7 +37,7 @@ class XMLFlavor(object):
     """
 
     def __init__(self, xml):
-        self.name = guess_flavor(xml)
+        self.name = 'factur-x'
         self.level = self.get_level(xml)
         self.details = FLAVORS[self.name]
 
@@ -129,21 +129,9 @@ class XMLFlavor(object):
         except LookupError:
             return False
 
-
-def valid_xmp_filenames():
-    result = []
-    for flavor in FLAVORS.keys():
-        result.append(FLAVORS[flavor]['xmp_filename'])
-    return result
-
-
-def guess_flavor(facturx_xml_etree):
-    if not isinstance(facturx_xml_etree, type(etree.Element('pouet'))):
-        raise ValueError('facturx_xml_etree must be an etree.Element() object')
-    if facturx_xml_etree.tag.startswith('{urn:un:unece:uncefact:'):
-        flavor = 'factur-x'
-    else:
-        raise Exception(
-            "Could not detect if the invoice is a Factur-X"
-            "invoice.")
-    return flavor
+    @staticmethod
+    def valid_xmp_filenames():
+        result = []
+        for flavor in FLAVORS.keys():
+            result.append(FLAVORS[flavor]['xmp_filename'])
+        return result
