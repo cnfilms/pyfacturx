@@ -5,7 +5,7 @@
                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<rsm:ExchangedDocumentContext>
 		<ram:BusinessProcessSpecifiedDocumentContextParameter>
-			<ram:ID>B1</ram:ID>
+			<ram:ID>S1</ram:ID>
 		</ram:BusinessProcessSpecifiedDocumentContextParameter>
 		<ram:GuidelineSpecifiedDocumentContextParameter>
 			<ram:ID>urn:cen.eu:en16931:2017</ram:ID>
@@ -194,6 +194,9 @@
 			</ram:SpecifiedTradeSettlementHeaderMonetarySummation>
 			<ram:InvoiceReferencedDocument>
 				<ram:IssuerAssignedID></ram:IssuerAssignedID>
+				<ram:FormattedIssueDateTime>
+					<qdt:DateTimeString format="102"></qdt:DateTimeString>
+				</ram:FormattedIssueDateTime>
 			</ram:InvoiceReferencedDocument>
 		</ram:ApplicableHeaderTradeSettlement>
 	</rsm:SupplyChainTradeTransaction>

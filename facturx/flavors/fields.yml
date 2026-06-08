@@ -19,6 +19,10 @@ avoir_invoice_number:
     _path:
         factur-x: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceReferencedDocument/ram:IssuerAssignedID
     _required: false
+avoir_invoice_date:
+    _path:
+        factur-x: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceReferencedDocument/ram:FormattedIssueDateTime
+    _required: false
 date:
     _path:
         factur-x: //rsm:ExchangedDocument/ram:IssueDateTime/udt:DateTimeString
