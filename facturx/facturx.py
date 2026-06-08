@@ -206,8 +206,7 @@ class FacturX(object):
         # After children are processed, check if current element is empty
         if (
                 len(element) == 0 and
-                (element.text is None or not element.text.strip()) and
-                not element.attrib
+                (element.text is None or not element.text.strip())
         ):
             parent = element.getparent()
             if parent is not None:

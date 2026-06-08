@@ -21,7 +21,7 @@ avoir_invoice_number:
     _required: false
 avoir_invoice_date:
     _path:
-        factur-x: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceReferencedDocument/ram:FormattedIssueDateTime
+        factur-x: /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceReferencedDocument/ram:FormattedIssueDateTime/qdt:DateTimeString
     _required: false
 date:
     _path:
@@ -95,7 +95,7 @@ tva_due_code:
     _path:
         factur-x: //rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:DueDateTypeCode
     _required: false
-tva_rate:
+tva_rate_header:
     _path:
         factur-x: //rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:RateApplicablePercent
     _required: false
@@ -277,13 +277,9 @@ line_total_amount:
     _path:
         factur-x: //rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeSettlementLineMonetarySummation/ram:LineTotalAmount
     _required: false
-tva_rate2:
+tva_rate_applicable_trade_tax:
     _path:
         factur-x: //rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax/ram:RateApplicablePercent
-    _required: false
-tva_rate3:
-    _path:
-        factur-x: //rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:CategoryTradeTax/ram:RateApplicablePercent
     _required: false
 buyer_tva_intra:
     _path:
