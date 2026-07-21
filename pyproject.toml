@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyfacturx"
-version = "2.0.2"
+version = "2.0.3"
 description = "Factur-X: electronic invoicing standard for France"
 readme = "README.md"
 license = "BSD-2-Clause"
