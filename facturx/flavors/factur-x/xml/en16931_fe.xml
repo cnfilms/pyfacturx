@@ -30,7 +30,7 @@
 			<ram:SpecifiedTradeProduct>
 				<ram:SellerAssignedID></ram:SellerAssignedID>
 				<ram:BuyerAssignedID></ram:BuyerAssignedID>
-				<ram:Name>Facture</ram:Name>
+				<ram:Name></ram:Name>
 				<ram:Description></ram:Description>
 				<ram:ApplicableProductCharacteristic>
 					<ram:Description></ram:Description>
