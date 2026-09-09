@@ -80,7 +80,7 @@
 				</ram:SpecifiedTaxRegistration>
 			</ram:SellerTradeParty>
 			<ram:BuyerTradeParty>
-				<ram:ID schemeID="0002"></ram:ID>
+				<ram:ID schemeID="0009"></ram:ID>
 				<ram:Name></ram:Name>
 				<ram:SpecifiedLegalOrganization>
 					<ram:ID schemeID="0002"></ram:ID>
@@ -173,7 +173,7 @@
 				<ram:LineTotalAmount>0</ram:LineTotalAmount>
 				<ram:AllowanceTotalAmount>0</ram:AllowanceTotalAmount>
 				<ram:TaxBasisTotalAmount>0</ram:TaxBasisTotalAmount>
-				<ram:TaxTotalAmount>0</ram:TaxTotalAmount>
+				<ram:TaxTotalAmount currencyID="EUR">0</ram:TaxTotalAmount>
 				<ram:GrandTotalAmount>0</ram:GrandTotalAmount>
 				<ram:DuePayableAmount>0</ram:DuePayableAmount>
 			</ram:SpecifiedTradeSettlementHeaderMonetarySummation>
