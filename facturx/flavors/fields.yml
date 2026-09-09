@@ -245,9 +245,9 @@ supply_chain_trade_line_item:
 line_id:
     _path:
         factur-x: //rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID
-item_identifier:
+item_name_identifier:
     _path:
-        factur-x: //rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:GlobalID
+        factur-x: //rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:Name
     _required: false
 buyer_assigned_item_identifier:
     _path:
